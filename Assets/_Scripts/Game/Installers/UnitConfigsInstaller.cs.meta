@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 41b445af33a36a14da404fc08ee1327f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _farmerConfig: {fileID: 11400000, guid: 47eb04daf0c65e84b84802a011d69efc, type: 2}
+  - _warriorConfig: {fileID: 11400000, guid: bbf0717a359926945bd94bb72d742f5e, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
