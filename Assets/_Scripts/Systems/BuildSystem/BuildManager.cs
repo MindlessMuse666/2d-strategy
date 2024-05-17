@@ -24,6 +24,8 @@ public class BuildManager : MonoBehaviour, ITurnDependent
 
     public void BuildStructure(GameObject structurePrefab)
     {
+        Debug.LogWarning($"Передана структура {structurePrefab.name}");
+        
         if (_map.IsPositionInvalid(_farmerUnit.transform.position))
         {
             Debug.LogWarning($"В этой позиции уже есть структура!");

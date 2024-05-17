@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c68247121f1e5e243be6733e43a3d114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _unitConfigs: {fileID: 11400000, guid: 67730b5c05699b44a8b8e35142fde806, type: 2}
   FinishedMoving:
     m_PersistentCalls:
       m_Calls:
@@ -216,7 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2cd158ac2df9a64fb5e6bd62bc56a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: 47eb04daf0c65e84b84802a011d69efc, type: 2}
 --- !u!1 &4128931356322222443
 GameObject:
   m_ObjectHideFlags: 0

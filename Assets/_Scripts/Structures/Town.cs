@@ -22,7 +22,8 @@ public class Town : MonoBehaviour, ITurnDependent
         if (_unitToCreate == null)
             return;
 
-        Instantiate(_unitToCreate, transform.position, Quaternion.identity);
+        GameObject newUnit = Instantiate(_unitToCreate, transform.position, Quaternion.identity);
+        newUnit.GetComponent<Unit>().ConstructNewUnit();
     }
 
     public void WaitTurn()

@@ -3,15 +3,9 @@ using UnityEngine.EventSystems;
 
 public class UIBuildSelectionHandler : MonoBehaviour, IPointerClickHandler
 {
+  [SerializeField] private UIBuildButtonHandler _buttonHandler;
   [SerializeField] private GameObject _structurePrefab;
-  [SerializeField] private bool _isInteractable = false;
-
-  private UIBuildButtonHandler _buttonHandler;
-
-  private void Awake()
-  {
-    _buttonHandler = GetComponentInParent<UIBuildButtonHandler>();
-  }
+  [SerializeField] private bool _isInteractable;
 
   public void OnPointerClick(PointerEventData eventData)
   {

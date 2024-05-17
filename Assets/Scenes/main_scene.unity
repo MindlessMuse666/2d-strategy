@@ -393,6 +393,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 276406884}
+  - {fileID: 1435423334}
   - {fileID: 936275775}
   m_Father: {fileID: 1475070555}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -866,6 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212c3e6f681427b4fa4b0cde52db3e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _map: {fileID: 760350191}
   _moveCost: 1
 --- !u!4 &527763495
 Transform:
@@ -1175,7 +1177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673503337}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6462,7 +6464,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c529cbbf5ef974395237a481a7e753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tilemap: {fileID: 1243262676}
+  _islandCollidersTilemap: {fileID: 673503340}
+  _seaTilemap: {fileID: 904900273}
+  _forestTilemap: {fileID: 1148436905}
+  _mountainsTilemap: {fileID: 1419198269}
+  _showEmpty: 0
+  _showMountains: 0
+  _showForest: 0
 --- !u!4 &760350192
 Transform:
   m_ObjectHideFlags: 0
@@ -6504,7 +6512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904900270}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -38047,7 +38055,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148436902}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -38841,7 +38849,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243262673}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46012,6 +46020,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1525032532}
     m_Modifications:
     - target: {fileID: 1895061648358938832, guid: 3c037d4002ce933448fe7ae91f6a2640, type: 3}
+      propertyPath: _buttonHandler
+      value: 
+      objectReference: {fileID: 1373817703}
+    - target: {fileID: 1895061648358938832, guid: 3c037d4002ce933448fe7ae91f6a2640, type: 3}
       propertyPath: _isInteractable
       value: 1
       objectReference: {fileID: 0}
@@ -46180,6 +46192,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4600675728930371982, guid: 3c037d4002ce933448fe7ae91f6a2640, type: 3}
+      propertyPath: OnBuildButtonClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600675728930371982, guid: 3c037d4002ce933448fe7ae91f6a2640, type: 3}
       propertyPath: OnBuildButtonClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 61029588}
@@ -46196,9 +46212,17 @@ PrefabInstance:
       value: UnitSpawnManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4600675728930371982, guid: 3c037d4002ce933448fe7ae91f6a2640, type: 3}
+      propertyPath: OnBuildButtonClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600675728930371982, guid: 3c037d4002ce933448fe7ae91f6a2640, type: 3}
       propertyPath: OnBuildButtonClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6542802348341938168, guid: 3c037d4002ce933448fe7ae91f6a2640, type: 3}
+      propertyPath: _buttonHandler
+      value: 
+      objectReference: {fileID: 1373817703}
     - target: {fileID: 6542802348341938168, guid: 3c037d4002ce933448fe7ae91f6a2640, type: 3}
       propertyPath: _isInteractable
       value: 1
@@ -46326,7 +46350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419198266}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46774,6 +46798,51 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1435423333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1435423334}
+  - component: {fileID: 1435423335}
+  m_Layer: 0
+  m_Name: GameplaySceneInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1435423334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435423333}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 142784277}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1435423335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435423333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8dc1752c13058c44899e08f7bfdedc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitPrefab: {fileID: 4124444779360414108, guid: 4cd03b813499c2c48a234ec73ed2e50c, type: 3}
 --- !u!1 &1475070554
 GameObject:
   m_ObjectHideFlags: 0
@@ -46833,7 +46902,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483482230}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -49393,6 +49462,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1525032532}
     m_Modifications:
     - target: {fileID: 275261187136252952, guid: 0c3fdc1246ff1654486f86a9577c308c, type: 3}
+      propertyPath: _buttonHandler
+      value: 
+      objectReference: {fileID: 1646933205}
+    - target: {fileID: 275261187136252952, guid: 0c3fdc1246ff1654486f86a9577c308c, type: 3}
       propertyPath: _isInteractable
       value: 1
       objectReference: {fileID: 0}
@@ -49496,6 +49569,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4850873786906489648, guid: 0c3fdc1246ff1654486f86a9577c308c, type: 3}
+      propertyPath: _buttonHandler
+      value: 
+      objectReference: {fileID: 1646933205}
+    - target: {fileID: 5634250446811244153, guid: 0c3fdc1246ff1654486f86a9577c308c, type: 3}
+      propertyPath: _buttonHandler
+      value: 
+      objectReference: {fileID: 1646933205}
     - target: {fileID: 5634250446811244153, guid: 0c3fdc1246ff1654486f86a9577c308c, type: 3}
       propertyPath: _isInteractable
       value: 1
@@ -49504,6 +49585,10 @@ PrefabInstance:
       propertyPath: _structurePrefab
       value: 
       objectReference: {fileID: 3029720654368554585, guid: a4e275bb74bcd494d8dd659bce5193ee, type: 3}
+    - target: {fileID: 5634250447885450256, guid: 0c3fdc1246ff1654486f86a9577c308c, type: 3}
+      propertyPath: _buttonHandler
+      value: 
+      objectReference: {fileID: 1646933205}
     - target: {fileID: 5634250447885450256, guid: 0c3fdc1246ff1654486f86a9577c308c, type: 3}
       propertyPath: _isInteractable
       value: 1
@@ -49821,6 +49906,7 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 276406885}
   - {fileID: 936275776}
+  - {fileID: 1435423335}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -49864,7 +49950,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973223171}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

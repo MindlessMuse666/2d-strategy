@@ -4,6 +4,8 @@ using Zenject;
 
 public class Unit : MonoBehaviour, ITurnDependent
 {
+    [SerializeField] private UnitConfigs _unitConfigs;
+
     private GameObject _unitPrefab;
     private string _unitName;
     private int _moveRange;
@@ -14,10 +16,24 @@ public class Unit : MonoBehaviour, ITurnDependent
 
     public UnityEvent FinishedMoving;
 
-    [Inject]
-    private void Construct(UnitConfigs unitConfigs)
+    [Inject] public void Construct(UnitConfigs unitConfigs)
     {
         IUnitConfig unitConfig = ChouseUnitConfig(unitConfigs);
+
+        Debug.LogWarning($"Просунулся {unitConfig.UnitName} конфиг!");
+
+        _unitPrefab = unitConfig.UnitPrefab;
+        _unitName = unitConfig.UnitName;
+        _moveRange = unitConfig.MoveRange;
+        _health = unitConfig.Health;
+        _attackStrength = unitConfig.AttackStrength;
+    }
+
+    public void ConstructNewUnit()
+    {
+        IUnitConfig unitConfig = ChouseUnitConfig(_unitConfigs);
+
+        Debug.LogWarning($"Просунулся {unitConfig.UnitName} конфиг!");
 
         _unitPrefab = unitConfig.UnitPrefab;
         _unitName = unitConfig.UnitName;
@@ -27,7 +43,7 @@ public class Unit : MonoBehaviour, ITurnDependent
     }
 
     private IUnitConfig ChouseUnitConfig(UnitConfigs unitConfigs) => 
-        GetComponent<Worker>() != null ? unitConfigs.FarmerConfig : unitConfigs.WarriorConfig;
+        gameObject.GetComponent<Worker>() != null ? unitConfigs.FarmerConfig : unitConfigs.WarriorConfig;
 
     private void Start()
     {
