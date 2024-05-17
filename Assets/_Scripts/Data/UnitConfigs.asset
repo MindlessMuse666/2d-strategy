@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2ee602d3ec47c48aa4bb8942b7d5a9, type: 3}
   m_Name: UnitConfigs
   m_EditorClassIdentifier: 
-  <FarmerConfig>k__BackingField: {fileID: 11400000, guid: 47eb04daf0c65e84b84802a011d69efc, type: 2}
-  <WarriorConfig>k__BackingField: {fileID: 11400000, guid: bbf0717a359926945bd94bb72d742f5e, type: 2}
+  FarmerConfig: {fileID: 11400000, guid: 47eb04daf0c65e84b84802a011d69efc, type: 2}
+  WarriorConfig: {fileID: 11400000, guid: 424f7a68a87c5814e987a3e7097acdb7, type: 2}

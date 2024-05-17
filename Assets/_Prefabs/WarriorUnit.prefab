@@ -12,10 +12,18 @@ PrefabInstance:
       propertyPath: _config
       value: 
       objectReference: {fileID: 11400000, guid: bbf0717a359926945bd94bb72d742f5e, type: 2}
+    - target: {fileID: 1475124652732488564, guid: 4cd03b813499c2c48a234ec73ed2e50c, type: 3}
+      propertyPath: _unitConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 424f7a68a87c5814e987a3e7097acdb7, type: 2}
     - target: {fileID: 4124444779360414108, guid: 4cd03b813499c2c48a234ec73ed2e50c, type: 3}
       propertyPath: m_Name
       value: WarriorUnit
       objectReference: {fileID: 0}
+    - target: {fileID: 6197317478332533698, guid: 4cd03b813499c2c48a234ec73ed2e50c, type: 3}
+      propertyPath: _unitConfig
+      value: 
+      objectReference: {fileID: 8957138586106840584}
     - target: {fileID: 7594087639901486345, guid: 4cd03b813499c2c48a234ec73ed2e50c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.5
@@ -61,9 +69,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2180772126102698752, guid: f1c3e9d4b29777f44898855cadcf6a49, type: 3}
     m_RemovedComponents:
-    - {fileID: 7520888029239387639, guid: 4cd03b813499c2c48a234ec73ed2e50c, type: 3}
-    - {fileID: 1475124652732488564, guid: 4cd03b813499c2c48a234ec73ed2e50c, type: 3}
+    - {fileID: 6214329193068821309, guid: 4cd03b813499c2c48a234ec73ed2e50c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cd03b813499c2c48a234ec73ed2e50c, type: 3}
+--- !u!114 &8957138586106840584 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1475124652732488564, guid: 4cd03b813499c2c48a234ec73ed2e50c, type: 3}
+  m_PrefabInstance: {fileID: 7509352259778338172}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2cd158ac2df9a64fb5e6bd62bc56a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

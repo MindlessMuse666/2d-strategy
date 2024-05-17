@@ -25,7 +25,7 @@ public class CharacterMovement : MonoBehaviour
 
         Vector2 direction = CalculateMoveDirection(endPosition);
 
-        if (_map.CanMoveTo((Vector2)_selectedUnit.transform.position + direction))
+        if (_map.CanMoveTo(_selectedUnit.transform.position, direction))
             _selectedUnit.HandleMovement(direction, _moveCost);
         else
             Debug.LogError($"Движение по направлению {direction} невозможно!");

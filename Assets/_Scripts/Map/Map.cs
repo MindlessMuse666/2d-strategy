@@ -10,6 +10,7 @@ public class Map : MonoBehaviour
 
     private Dictionary<Vector3Int, GameObject> _buildings = new();
     private List<Vector2Int> _islandTiles, _forestTiles, _mountainTiles, _emptyTiles;
+    private MapGrid _mapGrid;
 
     private void Awake()
     {
@@ -17,6 +18,8 @@ public class Map : MonoBehaviour
         _mountainTiles = GetTilemapWorldPositionsFrom(_mountainsTilemap);
         _islandTiles = GetTilemapWorldPositionsFrom(_islandCollidersTilemap);
         _emptyTiles = GetEmptyTiles(_islandTiles, _forestTiles.Concat(_mountainTiles).ToList());
+
+        PrepareMapGrid();
     }
 
     public void AddStructure(Vector3 worldPosition, GameObject structure)
@@ -33,14 +36,20 @@ public class Map : MonoBehaviour
         _buildings[position] = structure;
     }
 
-    public bool IsPositionInvalid(Vector3 worldPosition) => _buildings.ContainsKey(GetCellPositionFor(worldPosition));
-
-    public bool CanMoveTo(Vector2 unitPosition)
+    public bool CanMoveTo(Vector2 unitPosition, Vector2 direction)
     {
-        Vector2Int unitTilePosition = Vector2Int.FloorToInt(unitPosition);
+        Vector2Int unitTilePosition = Vector2Int.FloorToInt(unitPosition + direction);
+        List<Vector2Int> neighbours = _mapGrid.GetNeighboursFor(Vector2Int.FloorToInt(unitPosition));
 
-        return _emptyTiles.Contains(unitTilePosition) || _forestTiles.Contains(unitTilePosition);
+        foreach (Vector2Int cellPosition in neighbours) // ОТЛАДКА СОСЕДЕЙ КЛЕТКИ
+        {
+            Debug.Log(cellPosition);
+        }
+
+        return neighbours.Contains(unitTilePosition) && _mapGrid.IsPositionValid(unitTilePosition);
     }
+
+    public bool IsPositionInvalid(Vector3 worldPosition) => _buildings.ContainsKey(GetCellPositionFor(worldPosition));
 
     private List<Vector2Int> GetTilemapWorldPositionsFrom(Tilemap tilemap)
     {
@@ -72,6 +81,21 @@ public class Map : MonoBehaviour
 
     private Vector3Int GetWorldPositionFor(Vector2Int cellPosition) =>
         Vector3Int.CeilToInt(_islandCollidersTilemap.CellToWorld((Vector3Int)cellPosition));
+
+    private void PrepareMapGrid()
+    {
+        _mapGrid = new();
+
+        _mapGrid.AddToGrid(
+            _forestTilemap.GetComponent<TerrainDataReference>().Config(),
+            _forestTiles);
+        _mapGrid.AddToGrid(
+            _mountainsTilemap.GetComponent<TerrainDataReference>().Config(),
+            _mountainTiles);
+        _mapGrid.AddToGrid(
+            _islandCollidersTilemap.GetComponent<TerrainDataReference>().Config(),
+            _emptyTiles);
+    }
 
     private void OnDrawGizmos()
     {

@@ -394,7 +394,6 @@ Transform:
   m_Children:
   - {fileID: 276406884}
   - {fileID: 1435423334}
-  - {fileID: 936275775}
   m_Father: {fileID: 1475070555}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &276406883
@@ -1162,6 +1161,7 @@ GameObject:
   - component: {fileID: 673503338}
   - component: {fileID: 673503340}
   - component: {fileID: 673503339}
+  - component: {fileID: 673503341}
   m_Layer: 0
   m_Name: IslandColliders
   m_TagString: Untagged
@@ -6435,6 +6435,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &673503341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673503337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6483a23a56e40e24cb37d5914f4d905e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _terrainConfig: {fileID: 11400000, guid: 9a51e12de7d99ff4ab6181f4c7d8e4d3, type: 2}
 --- !u!1 &760350190
 GameObject:
   m_ObjectHideFlags: 0
@@ -37740,51 +37753,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &936275774
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 936275775}
-  - component: {fileID: 936275776}
-  m_Layer: 0
-  m_Name: UnitConfigsInstaller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &936275775
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 936275774}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 142784277}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &936275776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 936275774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41b445af33a36a14da404fc08ee1327f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _unitConfigs: {fileID: 11400000, guid: 67730b5c05699b44a8b8e35142fde806, type: 2}
 --- !u!1001 &950046319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38040,6 +38008,7 @@ GameObject:
   - component: {fileID: 1148436903}
   - component: {fileID: 1148436905}
   - component: {fileID: 1148436904}
+  - component: {fileID: 1148436906}
   m_Layer: 0
   m_Name: Forests
   m_TagString: Untagged
@@ -38823,6 +38792,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1148436906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148436902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6483a23a56e40e24cb37d5914f4d905e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _terrainConfig: {fileID: 11400000, guid: 2d827da7504aa3645abba68bdeae12c5, type: 2}
 --- !u!1 &1243262673
 GameObject:
   m_ObjectHideFlags: 0
@@ -46335,6 +46317,7 @@ GameObject:
   - component: {fileID: 1419198267}
   - component: {fileID: 1419198269}
   - component: {fileID: 1419198268}
+  - component: {fileID: 1419198270}
   m_Layer: 0
   m_Name: Mountains
   m_TagString: Untagged
@@ -46798,6 +46781,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1419198270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419198266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6483a23a56e40e24cb37d5914f4d905e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _terrainConfig: {fileID: 11400000, guid: c7bf71ce5e8167c49818567454725176, type: 2}
 --- !u!1 &1435423333
 GameObject:
   m_ObjectHideFlags: 0
@@ -49902,10 +49898,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: 0dffe1627fe401541b336bbe5e126b7d, type: 2}
   _monoInstallers:
   - {fileID: 276406885}
-  - {fileID: 936275776}
   - {fileID: 1435423335}
   _installerPrefabs: []
   _autoRun: 1

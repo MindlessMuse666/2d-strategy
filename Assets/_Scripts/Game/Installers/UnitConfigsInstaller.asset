@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c247625845bac34da197f54c837faae, type: 3}
-  m_Name: ObstacleTerrainConfig
+  m_Script: {fileID: 11500000, guid: 41b445af33a36a14da404fc08ee1327f, type: 3}
+  m_Name: UnitConfigsInstaller
   m_EditorClassIdentifier: 
-  IsWalkable: 0
-  MoveCost: 0
+  _unitConfigs: {fileID: 11400000, guid: 67730b5c05699b44a8b8e35142fde806, type: 2}

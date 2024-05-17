@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c247625845bac34da197f54c837faae, type: 3}
   m_Name: DifficultTerrainConfig
   m_EditorClassIdentifier: 
-  <IsWalkable>k__BackingField: 1
-  <MoveCost>k__BackingField: 2
+  IsWalkable: 1
+  MoveCost: 2

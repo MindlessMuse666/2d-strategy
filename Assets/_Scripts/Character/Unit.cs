@@ -1,65 +1,24 @@
 using UnityEngine;
 using UnityEngine.Events;
-using Zenject;
 
 public class Unit : MonoBehaviour, ITurnDependent
 {
-    [SerializeField] private UnitConfigs _unitConfigs;
-
-    private GameObject _unitPrefab;
-    private string _unitName;
-    private int _moveRange;
-    private int _health;
-    private int _attackStrength;
-
+    [SerializeField] private UnitData _unitConfig;
+    
     private int _currentMovePoints;
 
     public UnityEvent FinishedMoving;
-
-    [Inject] public void Construct(UnitConfigs unitConfigs)
-    {
-        IUnitConfig unitConfig = ChouseUnitConfig(unitConfigs);
-
-        Debug.LogWarning($"Просунулся {unitConfig.UnitName} конфиг!");
-
-        _unitPrefab = unitConfig.UnitPrefab;
-        _unitName = unitConfig.UnitName;
-        _moveRange = unitConfig.MoveRange;
-        _health = unitConfig.Health;
-        _attackStrength = unitConfig.AttackStrength;
-    }
-
-    public void ConstructNewUnit()
-    {
-        IUnitConfig unitConfig = ChouseUnitConfig(_unitConfigs);
-
-        Debug.LogWarning($"Просунулся {unitConfig.UnitName} конфиг!");
-
-        _unitPrefab = unitConfig.UnitPrefab;
-        _unitName = unitConfig.UnitName;
-        _moveRange = unitConfig.MoveRange;
-        _health = unitConfig.Health;
-        _attackStrength = unitConfig.AttackStrength;
-    }
-
-    private IUnitConfig ChouseUnitConfig(UnitConfigs unitConfigs) => 
-        gameObject.GetComponent<Worker>() != null ? unitConfigs.FarmerConfig : unitConfigs.WarriorConfig;
 
     private void Start()
     {
         ResetMovePoints();
     }
 
-    private void ResetMovePoints()
-    {
-        _currentMovePoints = _moveRange;
-    }
-
     public void HandleMovement(Vector3 cardinalDirection, int moveCost)
     {
         if (_currentMovePoints - moveCost < 0)
         {
-            Debug.Log($"У {_unitName} больше не осталось очков передвижения!");
+            Debug.Log($"У {_unitConfig.Config.UnitName} больше не осталось очков передвижения!");
             return;
         }
 
@@ -90,5 +49,10 @@ public class Unit : MonoBehaviour, ITurnDependent
         FinishedMoving?.Invoke();
 
         _currentMovePoints = 0;
+    }
+
+    private void ResetMovePoints()
+    {
+        _currentMovePoints = _unitConfig.Config.MoveRange;
     }
 }

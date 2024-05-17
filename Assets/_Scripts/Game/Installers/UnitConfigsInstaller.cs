@@ -1,7 +1,8 @@
 using UnityEngine;
 using Zenject;
 
-public class UnitConfigsInstaller : MonoInstaller
+[CreateAssetMenu(fileName = "UnitConfigsInstaller", menuName = "Installers/Configs/UnitConfigsInstaller")]
+public class UnitConfigsInstaller : ScriptableObjectInstaller<UnitConfigsInstaller>
 {
     [SerializeField] private UnitConfigs _unitConfigs;
 

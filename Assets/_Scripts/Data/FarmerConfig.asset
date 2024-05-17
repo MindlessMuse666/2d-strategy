@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc4d402015edb894eaa1e3cee2f42d0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 489d4e58785c12b488a949844fc3363c, type: 3}
   m_Name: FarmerConfig
   m_EditorClassIdentifier: 
-  <UnitPrefab>k__BackingField: {fileID: 4124444779360414108, guid: 4cd03b813499c2c48a234ec73ed2e50c, type: 3}
-  <UnitName>k__BackingField: Farmer
-  <Health>k__BackingField: 1
-  <MoveRange>k__BackingField: 2
-  <AttackStrength>k__BackingField: 1
+  UnitName: Farmer
+  Health: 1
+  MoveRange: 2
+  AttackStrength: 1
