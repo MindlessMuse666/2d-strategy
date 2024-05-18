@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: _unitConfig
       value: 
       objectReference: {fileID: 8957138586106840584}
+    - target: {fileID: 6197317478332533698, guid: 4cd03b813499c2c48a234ec73ed2e50c, type: 3}
+      propertyPath: _enemyDetectionLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 7594087639901486345, guid: 4cd03b813499c2c48a234ec73ed2e50c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.5

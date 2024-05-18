@@ -4,7 +4,9 @@ using UnityEngine.Events;
 public class Unit : MonoBehaviour, ITurnDependent
 {
     [SerializeField] private UnitData _unitConfig;
-    
+    [SerializeField] private LayerMask _enemyDetectionLayer;
+
+    public int CurrentMovePoints { get => _currentMovePoints; }
     private int _currentMovePoints;
 
     public UnityEvent FinishedMoving;
@@ -24,10 +26,14 @@ public class Unit : MonoBehaviour, ITurnDependent
 
         _currentMovePoints -= moveCost;
 
+        GameObject enemyUnit = GetEnemyInDirection(cardinalDirection);
+
+        if (enemyUnit == null) { transform.position += cardinalDirection; }
+        else { PerformAttack(enemyUnit.GetComponent<Health>()); }
+
+
         if (_currentMovePoints <= 0)
             FinishedMoving?.Invoke();
-
-        transform.position += cardinalDirection;
     }
 
     public bool CanKeepMove() => _currentMovePoints > 0;
@@ -40,7 +46,6 @@ public class Unit : MonoBehaviour, ITurnDependent
     public void DestroyUnit()
     {
         FinishedMoving?.Invoke();
-
         Destroy(gameObject);
     }
 
@@ -49,6 +54,27 @@ public class Unit : MonoBehaviour, ITurnDependent
         FinishedMoving?.Invoke();
 
         _currentMovePoints = 0;
+    }
+
+    private void PerformAttack(Health health)
+    {
+        health.GetHit(_unitConfig.Config.AttackStrength);
+
+        _currentMovePoints = 0; // ПРИ АТАКЕ ОЧКИ ДВИЖЕНИЯ ЗАКАНЧИВАЮТСЯ
+    }
+
+    private GameObject GetEnemyInDirection(Vector3 cardinalDirection)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(
+            transform.position,
+            cardinalDirection,
+            1,
+            _enemyDetectionLayer);
+
+        if (hit.collider != null)
+            return hit.collider.gameObject;
+
+        return null;
     }
 
     private void ResetMovePoints()

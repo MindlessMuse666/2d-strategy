@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -24,7 +25,7 @@ public class Map : MonoBehaviour
 
     public void AddStructure(Vector3 worldPosition, GameObject structure)
     {
-        Vector3Int position = GetCellPositionFor(worldPosition);
+        Vector3Int position = GetCellWorldPositionFor(worldPosition);
 
         if (_buildings.ContainsKey(position))
         {
@@ -36,20 +37,27 @@ public class Map : MonoBehaviour
         _buildings[position] = structure;
     }
 
-    public bool CanMoveTo(Vector2 unitPosition, Vector2 direction)
-    {
-        Vector2Int unitTilePosition = Vector2Int.FloorToInt(unitPosition + direction);
-        List<Vector2Int> neighbours = _mapGrid.GetNeighboursFor(Vector2Int.FloorToInt(unitPosition));
+    // public bool CanMoveTo(Vector2 unitPosition, Vector2 direction)
+    // {
+    //     Vector2Int unitTilePosition = Vector2Int.FloorToInt(unitPosition + direction);
+    //     List<Vector2Int> neighbours = _mapGrid.GetNeighboursFor(Vector2Int.FloorToInt(unitPosition));
 
-        foreach (Vector2Int cellPosition in neighbours) // ОТЛАДКА СОСЕДЕЙ КЛЕТКИ
-        {
-            Debug.Log(cellPosition);
-        }
+    //     foreach (Vector2Int cellPosition in neighbours) // ОТЛАДКА СОСЕДЕЙ КЛЕТКИ
+    //     {
+    //         Debug.Log(cellPosition);
+    //     }
 
-        return neighbours.Contains(unitTilePosition) && _mapGrid.IsPositionValid(unitTilePosition);
-    }
+    //     return neighbours.Contains(unitTilePosition) && _mapGrid.IsPositionValid(unitTilePosition);
+    // }
 
-    public bool IsPositionInvalid(Vector3 worldPosition) => _buildings.ContainsKey(GetCellPositionFor(worldPosition));
+    public bool IsPositionInvalid(Vector3 worldPosition) => _buildings.ContainsKey(GetCellWorldPositionFor(worldPosition));
+
+    public Dictionary<Vector2Int, Vector2Int?> GetMoveRange(Vector3 worldPosition, int currentMovePoints) => GraphSearch.BreadthFirstSearchAlgorithm(
+        _mapGrid,
+        (Vector2Int)GetCellWorldPositionFor(worldPosition),
+        currentMovePoints);
+
+    public int GetMoveCost(Vector2Int cellWorldPosition) => _mapGrid.GetMoveCost(cellWorldPosition);
 
     private List<Vector2Int> GetTilemapWorldPositionsFrom(Tilemap tilemap)
     {
@@ -76,7 +84,7 @@ public class Map : MonoBehaviour
         return new List<Vector2Int>(emptyTilesHashset);
     }
 
-    private Vector3Int GetCellPositionFor(Vector3 worldPosition) =>
+    private Vector3Int GetCellWorldPositionFor(Vector3 worldPosition) =>
         Vector3Int.CeilToInt(_islandCollidersTilemap.CellToWorld(_islandCollidersTilemap.WorldToCell(worldPosition)));
 
     private Vector3Int GetWorldPositionFor(Vector2Int cellPosition) =>

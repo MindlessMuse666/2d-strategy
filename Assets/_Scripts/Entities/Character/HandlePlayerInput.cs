@@ -58,6 +58,8 @@ public class HandlePlayerInput : MonoBehaviour
     {
         Collider2D collider = HandleMultipleObjectSelection(_startPosition);
         GameObject selectedGameObject = collider == null ? null : collider.gameObject;
+        
+        if (selectedGameObject != null) { Debug.Log($"До события выбран объект \"{selectedGameObject.name}\""); }
 
         OnHandleMouseClick?.Invoke(selectedGameObject);
 

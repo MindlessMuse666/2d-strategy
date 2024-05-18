@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8621113501912104812}
   - component: {fileID: 6197317478332533698}
   - component: {fileID: 1475124652732488564}
+  - component: {fileID: 4525409288667637191}
   - component: {fileID: 6214329193068821309}
   - component: {fileID: 6090262668585176168}
   - component: {fileID: 2189346371819811875}
@@ -20,7 +21,7 @@ GameObject:
   - component: {fileID: 9107606030306006834}
   m_Layer: 7
   m_Name: FarmerUnit
-  m_TagString: Character
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitConfig: {fileID: 1475124652732488564}
+  _enemyDetectionLayer:
+    serializedVersion: 2
+    m_Bits: 512
   FinishedMoving:
     m_PersistentCalls:
       m_Calls:
@@ -139,6 +143,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitConfig: {fileID: 11400000, guid: 47eb04daf0c65e84b84802a011d69efc, type: 2}
+--- !u!114 &4525409288667637191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4124444779360414108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9550e952a3d45ad4bb81cecbe0b0cc8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 2
+  _hitFx: {fileID: 3734373046156950868, guid: 6e311f7cf7ee31146b8e7e6a7963081c, type: 3}
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6197317478332533698}
+        m_TargetAssemblyTypeName: Unit, Assembly-CSharp
+        m_MethodName: DestroyUnit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6214329193068821309
 MonoBehaviour:
   m_ObjectHideFlags: 0
