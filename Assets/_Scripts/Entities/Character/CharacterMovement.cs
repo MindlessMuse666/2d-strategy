@@ -18,11 +18,11 @@ public class CharacterMovement : MonoBehaviour
             return;
         }
 
-        _selectedUnit = CompareTag(GlobalConstants.PLAYER) ? detectedObject.GetComponent<Unit>() : null; 
+        _selectedUnit = CompareTag(GlobalConstants.PLAYER) ? detectedObject.GetComponent<Unit>() : null;
 
         if (!detectedObject.TryGetComponent(out _selectedUnit))
             return;
-        
+
         if (_selectedUnit.CanKeepMove()) { PrepareMoveRange(); }
         else { _rangeHighlight.ClearHighlight(); }
 
@@ -52,6 +52,10 @@ public class CharacterMovement : MonoBehaviour
             Debug.LogError($"Движение по направлению {direction} невозможно!");
     }
 
+    public Dictionary<Vector2Int, Vector2Int?> GetMoveRangeFor(Unit selectedUnit) =>
+        _map.GetMoveRange(selectedUnit.transform.position, selectedUnit.CurrentMovePoints);
+
+
     private Vector2 CalculateMoveDirection(Vector3 endPosition)
     {
         Vector3 selectedUnitPosition = _selectedUnit.transform.position;
@@ -79,9 +83,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void PrepareMoveRange()
     {
-        _moveRange = _map.GetMoveRange(
-                    _selectedUnit.transform.position,
-                    _selectedUnit.CurrentMovePoints).Keys.ToList();
+        _moveRange = GetMoveRangeFor(_selectedUnit).Keys.ToList();
 
         _rangeHighlight.HighlightTiles(_moveRange);
     }

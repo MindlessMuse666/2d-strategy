@@ -5,6 +5,7 @@ public class Unit : MonoBehaviour, ITurnDependent
 {
     [SerializeField] private UnitData _unitConfig;
     [SerializeField] private LayerMask _enemyDetectionLayer;
+    [SerializeField] private AudioSource _moveSound;
 
     public int CurrentMovePoints { get => _currentMovePoints; }
     private int _currentMovePoints;
@@ -28,8 +29,13 @@ public class Unit : MonoBehaviour, ITurnDependent
 
         GameObject enemyUnit = GetEnemyInDirection(cardinalDirection);
 
-        if (enemyUnit == null) { transform.position += cardinalDirection; }
-        else { PerformAttack(enemyUnit.GetComponent<Health>()); }
+        if (enemyUnit == null)
+        {
+            _moveSound.Play();
+            transform.position += cardinalDirection;
+        }
+        else
+            PerformAttack(enemyUnit.GetComponent<Health>());
 
 
         if (_currentMovePoints <= 0)
