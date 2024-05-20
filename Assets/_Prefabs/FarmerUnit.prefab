@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 87e32a1b8ecd8d24884a7919ae055e2c, type: 2}
+  - {fileID: 2100000, guid: 3fd200990f2c26146a405d1f20f35f80, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 2988508894352116277}
   - component: {fileID: 8166138685889261326}
   - component: {fileID: 329760814950616243}
+  - component: {fileID: 5042357787741030420}
   m_Layer: 7
   m_Name: FarmerUnit
   m_TagString: Player
@@ -433,3 +434,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 2591219710374149053}
+--- !u!114 &5042357787741030420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8203946616377079713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab682936e6e18a4ea23300cccab4a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineRenderer: {fileID: 2591219710374149053}
+  _toggleOutline: 1
+  _changeColor: 0
+  _originalColor: {r: 0, g: 0, b: 0, a: 0}
+  _colorToChange: {r: 0, g: 0, b: 0, a: 0}

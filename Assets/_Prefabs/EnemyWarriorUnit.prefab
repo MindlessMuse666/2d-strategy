@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 1656706996558930300}
   - component: {fileID: 540459608887930763}
   - component: {fileID: 7188482776985371834}
+  - component: {fileID: 9165945599365758278}
   m_Layer: 9
   m_Name: EnemyWarriorUnit
   m_TagString: Enemy
@@ -436,6 +437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 2944672132309135683}
   _flashFeedback: {fileID: 4101176319268452383}
+  _outlineFeedback: {fileID: 9165945599365758278}
   _delayBetweenEnemySwitch: 0.5
   _delayBetweenSteps: 0.3
 --- !u!114 &7188482776985371834
@@ -450,3 +452,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e309be646bea794cba5481ee4269b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9165945599365758278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8326264617427576880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab682936e6e18a4ea23300cccab4a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineRenderer: {fileID: 8264171470024483333}
+  _colorToChange: {r: 1, g: 1, b: 1, a: 1}
+  _toggleOutline: 0
+  _changeColor: 1

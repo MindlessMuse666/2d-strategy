@@ -3,6 +3,7 @@ using UnityEngine;
 public class SelectionManager : MonoBehaviour, ITurnDependent
 {
     private FlashFeedback _flashFeedback;
+    private AgentOutlineFeedback _outlineFeedback;
     private SelectionIndicatorFeedback _selectionFeedback;
 
     public void HandleSelection(GameObject detectedCollider)
@@ -23,6 +24,9 @@ public class SelectionManager : MonoBehaviour, ITurnDependent
 
         if (detectedCollider.TryGetComponent(out _flashFeedback))
             _flashFeedback.PlayFeedback();
+
+        if (detectedCollider.TryGetComponent(out _outlineFeedback))
+            _outlineFeedback.Select();
     }
 
     public void WaitTurn()
@@ -30,12 +34,18 @@ public class SelectionManager : MonoBehaviour, ITurnDependent
         DeselectOldObject();
     }
 
-    private void DeselectOldObject()
+    public void DeselectOldObject()
     {
         if (_flashFeedback != null)
         {
             _flashFeedback.StopFeedback();
             _flashFeedback = null;
+        }
+
+        if (_outlineFeedback != null)
+        {
+            _outlineFeedback.Deselect();
+            _outlineFeedback = null;
         }
 
         if (_selectionFeedback != null)

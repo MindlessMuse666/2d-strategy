@@ -8,6 +8,7 @@ public class BasicEnemyAI : MonoBehaviour, IEnemyAI
 {
     [SerializeField] private Unit _unit;
     [SerializeField] private FlashFeedback _flashFeedback;
+    [SerializeField] private AgentOutlineFeedback _outlineFeedback;
     [SerializeField] private float _delayBetweenEnemySwitch = .5f;
     [SerializeField] private float _delayBetweenSteps = .3f;
 
@@ -20,6 +21,7 @@ public class BasicEnemyAI : MonoBehaviour, IEnemyAI
     public void StartTurn()
     {
         _flashFeedback.PlayFeedback();
+        _outlineFeedback.Select();
 
         Dictionary<Vector2Int, Vector2Int?> moveRange = _characterMovement.GetMoveRangeFor(_unit);
         List<Vector2Int> path = GetPathToRandomPosition(moveRange);
@@ -84,5 +86,6 @@ public class BasicEnemyAI : MonoBehaviour, IEnemyAI
     {
         TurnFinished?.Invoke();
         _flashFeedback.StopFeedback();
+        _outlineFeedback.Deselect();
     }
 }

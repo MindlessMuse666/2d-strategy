@@ -9,8 +9,13 @@ public static class GlobalConstants
     public const string ENEMY = "Enemy";
     public const string TOWN = "Town";
 
+    // Shaders
+    public const string COLOR = "_Color";
+    public const string OUTLINE = "_Outline";
+
+
     // Animations
-    
+
 
     // SortingLayers
 }

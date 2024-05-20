@@ -52,6 +52,14 @@ public class CharacterMovement : MonoBehaviour
             Debug.LogError($"Движение по направлению {direction} невозможно!");
     }
 
+    public void ResetCharacterMove()
+    {
+        if (_rangeHighlight != null)
+            _rangeHighlight.ClearHighlight();
+            
+        _selectedUnit = null;
+    }
+
     public Dictionary<Vector2Int, Vector2Int?> GetMoveRangeFor(Unit selectedUnit) =>
         _map.GetMoveRange(selectedUnit.transform.position, selectedUnit.CurrentMovePoints);
 
@@ -73,12 +81,6 @@ public class CharacterMovement : MonoBehaviour
         }
 
         return direction;
-    }
-
-    private void ResetCharacterMove()
-    {
-        _rangeHighlight.ClearHighlight();
-        _selectedUnit = null;
     }
 
     private void PrepareMoveRange()

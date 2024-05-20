@@ -94,9 +94,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4358477152669050054}
   - component: {fileID: 4407749909802305860}
-  - component: {fileID: -6592345955233825398}
-  - component: {fileID: 9013925690800535162}
   - component: {fileID: -813867320559969120}
+  - component: {fileID: 2543947002494889269}
+  - component: {fileID: 7564810598515357959}
+  - component: {fileID: 9013925690800535162}
+  - component: {fileID: -6592345955233825398}
   - component: {fileID: 3240948788033272925}
   m_Layer: 7
   m_Name: TownStructure
@@ -166,7 +168,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-6592345955233825398
+--- !u!114 &-813867320559969120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,10 +177,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 6229809086464755558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04cedd61d93c8a149a58107f4ccbcff9, type: 3}
+  m_Script: {fileID: 11500000, guid: ee347530e261f454fbe232b64d4510e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 3425266777831773225}
+--- !u!114 &2543947002494889269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229809086464755558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9550e952a3d45ad4bb81cecbe0b0cc8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 4
+  _hitFx: {fileID: 3734373046156950868, guid: 6e311f7cf7ee31146b8e7e6a7963081c, type: 3}
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7564810598515357959}
+        m_TargetAssemblyTypeName: DestroyEvent, Assembly-CSharp
+        m_MethodName: DestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7564810598515357959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229809086464755558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8dab6afa3ad5948a959ca601955460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9013925690800535162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 3425266777831773225}
---- !u!114 &-813867320559969120
+--- !u!114 &-6592345955233825398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,9 +243,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6229809086464755558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee347530e261f454fbe232b64d4510e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 04cedd61d93c8a149a58107f4ccbcff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 3425266777831773225}
 --- !u!114 &3240948788033272925
 MonoBehaviour:
   m_ObjectHideFlags: 0
