@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 87e32a1b8ecd8d24884a7919ae055e2c, type: 2}
+  - {fileID: 2100000, guid: d8114c646b8d1124b93760746c4df8c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -434,7 +434,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _outlineRenderer: {fileID: 2826573167099091956}
+  _colorToChange: {r: 0, g: 0, b: 0, a: 0}
   _toggleOutline: 1
   _changeColor: 0
-  _originalColor: {r: 0, g: 0, b: 0, a: 0}
-  _colorToChange: {r: 0, g: 0, b: 0, a: 0}
